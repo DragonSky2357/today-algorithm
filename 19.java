@@ -1,8 +1,10 @@
 class Solution {
     public long solution(long n) {
         
-        for(int i=1;i<=n;i++){
-            if((i*i) == n) return (i+1) * (i+1); 
+        long num = (long)Math.sqrt(n);
+        
+        if(num * num == n){
+            return (num+1) * (num+1);
         }
         return -1;
     }
