@@ -1,24 +1,14 @@
 class Solution {
-    public static boolean primeNumber(int num){
-        for(int i=2; i<num; i++){
-            if(num%i==0)
-                return false;
-        }
-        return true;
-    }
-    public static int solution(int[] answers) {
-        int count=0;
+    public static int solution(int n, int m, int[] section) {
+        int roller = section[0];
+        int cnt = 1;
         
-        for(int i=0;i<answers.length;i++){
-            for(int j=i+1;j<answers.length;j++){
-                for(int k=j+1;k<answers.length;k++){
-                    int sum = answers[i] + answers[j] + answers[k];
-                    if(primeNumber(sum)) count++;
-                }
+        for(int i = 1; i < section.length; i++) {
+            if(roller + m - 1 < section[i]) {
+                roller = section[i];
+                cnt++;
             }
         }
-
-        return count;
-
+        return cnt;
     }
 }
